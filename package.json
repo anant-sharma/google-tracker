@@ -1,0 +1,17 @@
+{
+  "name": "tracker",
+   "author": {
+     "name": "Anant Sharma",
+     "email": "anantatnet@gmail.com"
+  },
+  "version": "0.0.1",
+  "private": "true",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": ">=4.13.1",
+    "body-parser":"~1.14.2",
+    "socket.io":"~1.4.5",
+  }
+}
