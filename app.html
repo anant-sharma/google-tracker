@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Administrator</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+
+// In the following example, markers appear when the user clicks on the map.
+// The markers are stored in an array.
+// The user can then click an option to hide, show or delete the markers.
+var map;
+var socket = io();
+
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: {lat: 25.523260, lng: 77.659244},
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+
+  // This event listener will call addMarker() when the map is clicked.
+  map.addListener('click', function(event) {
+    var str = String(event.latLng);
+    var res = str.split("(");
+    var res = res[1].split(")");
+    var res = res[0].split(",");
+    var loc = {lat: Number(res[0]), lng: Number(res[1])};
+    socket.emit('new loc input', loc);
+  });
+
+}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUKMjdzoMSF29BFQCN1BKIm4FU63AlFo&signed_in=true&callback=initMap"></script>
+  </body>
+</html>
