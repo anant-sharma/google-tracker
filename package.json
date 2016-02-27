@@ -1,9 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "google-tracker",
-=======
   "name": "tracker",
->>>>>>> origin/master
    "author": {
      "name": "Anant Sharma",
      "email": "anantatnet@gmail.com"
@@ -15,11 +12,6 @@
   },
   "dependencies": {
     "express": ">=4.13.1",
-<<<<<<< HEAD
     "socket.io":"~1.4.5"
-=======
-    "body-parser":"~1.14.2",
-    "socket.io":"~1.4.5",
->>>>>>> origin/master
   }
 }
