@@ -16,6 +16,6 @@ io.on('connection', function(socket){
   });
 });
 
-app.listen(process.env.PORT, function(){
+http.listen(process.env.PORT, function(){
   console.log('Server Started');
 });
