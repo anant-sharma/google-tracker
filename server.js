@@ -16,6 +16,6 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(process.env.PORT, function(){
+http.listen(8080, function(){
   console.log('Server Started');
 });
